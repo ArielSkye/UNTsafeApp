@@ -1,6 +1,11 @@
 <div class="jumbotron">
 	<h1>Welcome to UNT Safe!</h1>
-	<p>Please login or create an account to continue.</p>
-		<%= link_to "Log In", "#", class: "btn btn-default btn-lg" %>
-		<%= link_to "Sign Up", "#", class: "btn btn-primary btn-lg" %>
+		
+	<% if user_signed_in? %>
+	This is the UNT Safety App. 
+	<% else %>
+		<p>Please login or create an account to continue.</p>
+		<%= link_to "Log In", new_user_session_path, class: "btn btn-default btn-lg" %>
+		<%= link_to "Sign Up", new_user_registration_path, class: "btn btn-primary btn-lg" %>
+	<% end %>
 </div>
