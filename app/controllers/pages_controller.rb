@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
   def home
   end
-  def about
+  def resources
+  end
+  def pins
   end
 end

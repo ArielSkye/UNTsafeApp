@@ -37,7 +37,7 @@ class PinsController < ApplicationController
 
   def destroy
     @pin.destroy
-      redirect_to pins_url, notice: 'Pin was successfully destroyed.'
+      redirect_to pins_url, notice: 'Pin was successfully deleted.'
   end
 
   private
@@ -46,11 +46,11 @@ class PinsController < ApplicationController
     end
 
     def correct_user
-      @pin = current_user.pins.find_by(:id params[:id])
+      @pin = current_user.pins.find_by(id: params[:id])
       redirect_to pins_path, notice: "Sorry, you are not authorized to edit this pin." if @pin.nil?
     end
 
     def pin_params
-      params.require(:pin).permit(:description)
+      params.require(:pin).permit(:description, :image)
     end
 end
