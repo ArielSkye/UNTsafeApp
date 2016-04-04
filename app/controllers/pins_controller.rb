@@ -4,7 +4,7 @@ class PinsController < ApplicationController
   before_action :authenticate_user!, only: [:new]
 
   def index # list of pins, read all
-    @pins = Pin.all
+    @pins = Pin.all.order("created_at DESC")
   end
 
   def show # read
