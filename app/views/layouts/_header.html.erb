@@ -28,6 +28,12 @@
           <% end %>
         </li>
         <li>
+          <%= link_to checkin_path do %>
+            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
+            Check In
+          <% end %>
+        </li>
+        <li>
           <%= link_to destroy_user_session_path, method: :delete do %>
             <span class="glyphicon glyphicon-off" aria-hidden="true"></span> 
             Log Out

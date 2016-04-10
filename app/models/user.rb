@@ -6,4 +6,11 @@ class User < ActiveRecord::Base
 
    has_many :pins
    
+   validates :contactname, presence: true
+   validates :contactnumber, presence: true
+   validates :contactnumber, :phone_number => {:ten_digits => true, :message => "Invalid phone number. Please enter a 10-digit number."}
+
+   geocoded_by :longitude
+   after_validation :geocode
+   
 end

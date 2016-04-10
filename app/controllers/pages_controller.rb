@@ -5,4 +5,10 @@ class PagesController < ApplicationController
   end
   def pins
   end
+  def checkin
+  end
+  def youvecheckedin
+  end
+  def home_map
+  end
 end
