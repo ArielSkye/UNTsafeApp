@@ -5,7 +5,36 @@
 <hr>
 
 		<div class="center">
-			<%= link_to "Check in", youvecheckedin_path, class: "btn btn-success btn-lg btn-block" %>
+			
+			<!-- Button trigger modal -->
+			<button type="button" class="btn btn-success btn-lg btn-block" data-toggle="modal" data-target="#myModal">
+			  Check in
+			</button>
+
+			<!-- Modal -->
+			<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+			  <div class="modal-dialog" role="document">
+			    <div class="modal-content">
+			      <div class="modal-header">
+			        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			        <h4 class="modal-title" id="myModalLabel">Check in with your contact.</h4>
+			      </div>
+			      <div class="modal-body">
+			     	<p>FORM</p>
+			     	<p>Contact: [autofill]</p>
+			     	<p>ETA: [select]</p>
+			     	<p>Message: [autofill]</p>
+					
+			      </div>
+			      <div class="modal-footer">
+			        <%= link_to "Send SMS", youvecheckedin_path, class: "btn btn-success btn-lg btn-block" %>
+			        <br>
+			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			      </div>
+			    </div>
+			  </div>
+			</div>
+
 		</div>
 		<br>
 		<div class="center">

@@ -8,6 +8,8 @@
 
 <%= render 'pages/home' unless user_signed_in? %>
 
+<% if user_signed_in? %>
+
 <h1>Safety Map</h1>
 <p>Create or view pins on the map below that mark safety issues and incidences on campus.</p>
 
@@ -36,3 +38,13 @@
 	  handler.fitMapToBounds();
 	});
 </script>
+
+<br>
+
+<% end %>
+
+<div class="center">
+  <%= link_to "View All Pins", pins_path, class: "btn btn-default" %>
+  <%= link_to "New Pin", new_pin_path, class: "btn btn-success" %>
+</div>
+<br>

@@ -12,34 +12,20 @@
 
   <!-- Collect the nav links, forms, and other content for toggling -->
   <div class="collapse navbar-collapse navbar-ex1-collapse">
-    <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to "Home", root_path %></li>
-      <li>
-        <%= link_to pins_path do %>
-          <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span> Pins
-        <% end %>
-      </li> 
+    <ul class="nav navbar-nav navbar-right"> 
       <li><%= link_to "Resources", resources_path %></li> 
       <% if user_signed_in? %>
         <li>
-          <%= link_to new_pin_path do %>
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
-            New Pin
-          <% end %>
-        </li>
-        <li>
           <%= link_to checkin_path do %>
-            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> 
             Check In
           <% end %>
         </li>
         <li>
           <%= link_to destroy_user_session_path, method: :delete do %>
-            <span class="glyphicon glyphicon-off" aria-hidden="true"></span> 
             Log Out
           <% end %>
         </li>
-        <li><%= link_to "Account Settings", edit_user_registration_path %></li>
+        <li><%= link_to "Settings", edit_user_registration_path %></li>
       <% else %>
         <li><%= link_to "Log in", new_user_session_path %></li>
       <% end %>

@@ -25,5 +25,9 @@
 </div>
 
 <div class="center">
+  <%= link_to "New Pin", new_pin_path, class: "btn btn-default" %>
+</div>
+
+<div class="center">
   <%= will_paginate @pins, renderer: BootstrapPagination::Rails  %>
 </div>

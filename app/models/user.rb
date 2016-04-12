@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
    has_many :pins
+   has_one :recipient
    
    validates :contactname, presence: true
    validates :contactnumber, presence: true
