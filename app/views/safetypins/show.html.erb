@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @safetypin.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @safetypin.longitude %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @safetypin.address %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @safetypin.description %>
+</p>
+
+<%= link_to 'Edit', edit_safetypin_path(@safetypin) %> |
+<%= link_to 'Back', safetypins_path %>

@@ -11,4 +11,6 @@ class PagesController < ApplicationController
   end
   def home_map
   end
+  def safetypins
+  end
 end

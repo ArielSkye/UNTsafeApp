@@ -11,15 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412182857) do
+ActiveRecord::Schema.define(version: 20160419191845) do
 
   create_table "pins", force: :cascade do |t|
     t.string   "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.integer  "user_id"
+    t.float    "longitude"
+    t.float    "latitude"
+    t.string   "address"
   end
 
+  add_index "pins", ["address"], name: "index_pins_on_address"
+  add_index "pins", ["latitude"], name: "index_pins_on_latitude"
+  add_index "pins", ["longitude"], name: "index_pins_on_longitude"
   add_index "pins", ["user_id"], name: "index_pins_on_user_id"
 
   create_table "recipients", force: :cascade do |t|
@@ -27,6 +33,16 @@ ActiveRecord::Schema.define(version: 20160412182857) do
     t.string   "phone"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
+  end
+
+  create_table "safetypins", force: :cascade do |t|
+    t.float    "latitude"
+    t.float    "longitude"
+    t.string   "address"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

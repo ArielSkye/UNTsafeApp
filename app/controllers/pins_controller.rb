@@ -5,6 +5,10 @@ class PinsController < ApplicationController
 
   def index # list of pins, read all
     @pins = Pin.all.order("created_at DESC").paginate(:page => params[:page], :per_page => 3)
+    @hash = Gmaps4rails.build_markers(@pins) do |pin, marker|
+    marker.lat pin.latitude
+    marker.lng pin.longitude
+    end
   end
 
   def show # read

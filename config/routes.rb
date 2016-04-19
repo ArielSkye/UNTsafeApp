@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :safetypins
   resources :pins
   devise_for :users
   root "pages#home_map"
