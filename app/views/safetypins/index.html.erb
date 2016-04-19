@@ -5,16 +5,27 @@
 <h1>Listing Safetypins</h1>
 
 <div style='width: full;'>
-  <div id="map" style='width: full; height: 500px;'></div>
+  <div id="geolocation" style='width: full; height: 500px;'></div>
 </div>
 
 <script type="text/javascript">
-  handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+     var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: {id: 'geolocation'} }, function(){
+      if(navigator.geolocation)
+        navigator.geolocation.getCurrentPosition(displayOnMap);
     markers = handler.addMarkers(<%=raw @hash.to_json %>);
     handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-  });
+    });
+
+    function displayOnMap(position){
+      var marker = handler.addMarker({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      });
+      handler.map.centerOn(marker);
+    };
+
+      var markers = handler.addMarkers(<%=raw @hash.to_json %>);
 </script>
 
 <table class="table table-hover">
