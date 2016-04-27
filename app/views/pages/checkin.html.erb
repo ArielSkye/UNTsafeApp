@@ -1,5 +1,6 @@
-<h1>Check in with your contact, .</h1>
-<p>Before you travel at unsafe times, let [NAME] know where you're going so they can keep tabs on you for safety!</p>
+<h1>Check in with your contact.</h1>
+
+<p>Before you travel at unsafe times, let your contact know where you're going so they can keep tabs on you for safety!</p>
 <p>Click "Check in" and we will send a text to your contact letting them know where you are. When you get to your destination, click "I've arrived" to let them know you're safe.</p>
 
 <hr>
@@ -20,14 +21,15 @@
 			        <h4 class="modal-title" id="myModalLabel">Check in with your contact.</h4>
 			      </div>
 			      <div class="modal-body">
-			     	<p>FORM</p>
-			     	<p>Contact: [autofill]</p>
-			     	<p>ETA: [select]</p>
-			     	<p>Message: [autofill]</p>
+			     	FORM:
+			     	Contact: [autofill]
+			     	ETA: [select]
+			     	Message: [autofill]
 					
 			      </div>
 			      <div class="modal-footer">
-			        <%= link_to "Send SMS", youvecheckedin_path, class: "btn btn-success btn-lg btn-block" %>
+			        <%= link_to "Send SMS", :method => :send_text_message, class: "btn btn-success btn-lg btn-block" %>
+
 			        <br>
 			        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
 			      </div>

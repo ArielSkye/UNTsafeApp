@@ -8,6 +8,8 @@ class SafetypinsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@safetypins) do |safetypin, marker|
     marker.lat safetypin.latitude
     marker.lng safetypin.longitude
+    marker.infowindow safetypin.description
+
   end
   end
 

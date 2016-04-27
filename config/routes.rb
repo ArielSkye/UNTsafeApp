@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   resources :safetypins
   resources :pins
   devise_for :users
-  root "pages#home_map"
+  root "safetypins#index"
   get "resources" => "pages#resources"
   get "checkin" => "pages#checkin"
   get "youvecheckedin" => "pages#youvecheckedin"

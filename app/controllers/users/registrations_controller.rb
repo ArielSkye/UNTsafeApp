@@ -6,4 +6,7 @@ class users::registrationsController < Devise::registrationsController
   # def create
   #   super
   # end
+
+  
+
 end

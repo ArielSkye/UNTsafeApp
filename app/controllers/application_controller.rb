@@ -13,4 +13,6 @@ class ApplicationController < ActionController::Base
   	devise_parameter_sanitizer.for(:sign_up) << :contactnumber
   	devise_parameter_sanitizer.for(:account_update) << :contactnumber
   end
+
+
 end

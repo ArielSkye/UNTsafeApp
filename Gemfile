@@ -20,6 +20,8 @@ gem 'will_paginate-bootstrap'
 gem 'validates_phone_number', '~> 2.0', '>= 2.0.1'
 gem 'geocoder'
 gem 'gmaps4rails'
+gem 'sinatra'
+gem 'twilio-ruby'
 
 group :development, :test do
   gem 'sqlite3'
