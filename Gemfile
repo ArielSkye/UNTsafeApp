@@ -22,7 +22,6 @@ gem 'geocoder'
 gem 'gmaps4rails'
 gem 'sinatra'
 gem 'twilio-ruby'
-gem 'puma'
 
 group :development, :test do
   gem 'sqlite3'
