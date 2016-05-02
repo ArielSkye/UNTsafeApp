@@ -1,0 +1,58 @@
+<%= render 'pages/home' unless user_signed_in? %>
+
+<div style='width: full;'>
+  <div id="geolocation" style='width: full; height: 500px;'></div>
+</div>
+
+<script type="text/javascript">
+     var handler = Gmaps.build('Google');
+    handler.buildMap({ internal: {id: 'geolocation'} }, function(){
+      if(navigator.geolocation)
+        navigator.geolocation.getCurrentPosition(displayOnMap);
+    markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    handler.bounds.extendWith(markers);
+    });
+
+    function displayOnMap(position){
+      var marker = handler.addMarker({
+        lat: position.coords.latitude,
+        lng: position.coords.longitude,
+      });
+      handler.map.centerOn(marker);
+    };
+
+      var markers = handler.addMarkers(<%=raw @hash.to_json %>);
+</script>
+
+
+<div id="pins" class="transitions-enabled">
+
+  <% @pins.each do |pin| %>
+
+    <div class="box panel panel-default">
+              <%= link_to image_tag(pin.image.url(:medium)), pin %>
+      <div class="panel-body">
+        <%= pin.description %>
+        <br>
+        <strong><%= pin.user.email if pin.user %></strong>
+      
+        <% if pin.user == current_user %>
+          <div class="actions">
+            <%= link_to 'Edit', edit_pin_path(pin) %>
+            <%= link_to 'Delete', pin, method: :delete, data: { confirm: 'Are you sure you would like to delete your pin?' } %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+  <% end %>
+
+</div>
+
+<div class="center">
+  <%= link_to "New Pin", new_pin_path, class: "btn btn-default" %>
+</div>
+
+<div class="center">
+  <%= will_paginate @pins, renderer: BootstrapPagination::Rails  %>
+</div>
